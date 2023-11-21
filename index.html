@@ -1,53 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChargeBuddy</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Ladestation-Dashboard</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Hier wird der Inhalt der jeweiligen Seite eingefügt -->
-    </div>
 
-    <script>
-        function loadPage(page) {
-            var container = document.querySelector('.container');
-            container.innerHTML = '';
+  <header>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Ladestationen</a>
+      <a href="#">Kontakt</a>
+    </nav>
+    <a href="#" class="login-button">Anmelden</a>
+  </header>
 
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    container.innerHTML = xhr.responseText;
-                }
-            };
+  <main>
+    <section id="home">
+      <h1>Ladestation-Dashboard</h1>
+      <p>Hier finden Sie alle Informationen zu unseren Ladestationen.</p>
+    </section>
 
-            xhr.open('GET', page, true);
-            xhr.send();
-        }
+    <section id="login" class="hidden">
+      <form action="login.php" method="post">
+        <input type="text" name="username" placeholder="Benutzername">
+        <input type="password" name="password" placeholder="Passwort">
+        <button type="submit">Anmelden</button>
+      </form>
+    </section>
 
-        function redirectToLogin() {
-            loadPage('login.html');
-        }
+    <section id="dashboard" class="hidden">
+      <h1>Dashboard</h1>
+      <div class="station-list">
+        <ul>
+          <li>
+            <h2>Ladestation 1</h2>
+            <p>Status: Verfügbar</p>
+            <p>Kapazität: 100 kW</p>
+          </li>
+          <li>
+            <h2>Ladestation 2</h2>
+            <p>Status: Besetzt</p>
+            <p>Kapazität: 50 kW</p>
+          </li>
+          <li>
+            <h2>Ladestation 3</h2>
+            <p>Status: In Wartung</p>
+            <p>Kapazität: 20 kW</p>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-        function login() {
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
+  </main>
 
-            // Hier solltest du die eingegebenen Daten mit deiner Datenbank oder Authentifizierungsdienst überprüfen.
-            // Für dieses Beispiel ist das Passwort einfach "password".
-            if (password === "password") {
-                // Authentifizierung erfolgreich, weiterleiten zum Dashboard
-                loadPage('dashboard.html');
-            } else {
-                alert("Falscher Benutzername oder Passwort. Versuche es erneut.");
-            }
-        }
+  <footer>
+    <p>Copyright &copy; 2023</p>
+  </footer>
 
-        // Initial die Startseite laden
-        loadPage('startseite.html');
-    </script>
 </body>
 </html>
