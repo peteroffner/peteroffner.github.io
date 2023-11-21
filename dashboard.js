@@ -1,4 +1,3 @@
-// Inhalt der dashboard.html
 document.querySelector('.container').innerHTML = `
     <div class="dashboard-container">
         <img src="logo.png" alt="ChargeBuddy Logo" class="logo">
