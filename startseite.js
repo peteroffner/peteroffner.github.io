@@ -1,4 +1,3 @@
-// Inhalt der startseite.html
 document.querySelector('.container').innerHTML = `
     <div class="start-container">
         <img src="logo.png" alt="ChargeBuddy Logo" class="logo">
